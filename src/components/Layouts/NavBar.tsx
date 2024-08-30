@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -9,15 +10,14 @@ import {
 
 const NavBar = () => {
   return (
-    <div className="flex items-center justify-center bg-gray-900 h-20">
+    <div className="flex items-center justify-center bg-gray-900 h-24">
       <NavigationMenu>
         <Link to="/">
           <div className="flex items-center justify-center mx-2">
-            <img
-              src="https://seeklogo.com/images/C/car-wash-logo-DDA5359527-seeklogo.com.png"
-              alt=""
-              className="w-14"
-            />
+            <Avatar>
+              <AvatarImage src="https://logowik.com/content/uploads/images/car-wash6885.logowik.com.webp" />
+              <AvatarFallback>Car Logo</AvatarFallback>
+            </Avatar>
             <h4 className="text-xl font-bold text-white ml-2">Car Wash 24</h4>
           </div>
         </Link>
@@ -27,16 +27,16 @@ const NavBar = () => {
               <Link to="/">Home</Link>
             </NavigationMenuLink>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              <Link to="/products">Products</Link>
+              <Link to="/services">Services</Link>
             </NavigationMenuLink>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              <Link to="/about">About US</Link>
+              <Link to="/bookings">Bookings</Link>
             </NavigationMenuLink>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              <Link to="/product-management">Product Management</Link>
+              <Link to="/signIn">Sign In</Link>
             </NavigationMenuLink>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              <Link to="/checkout">Checkout</Link>
+              <Link to="/signUp">Sign Up</Link>
             </NavigationMenuLink>
           </NavigationMenuItem>
         </NavigationMenuList>
