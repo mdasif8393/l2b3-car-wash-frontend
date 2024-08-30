@@ -8,9 +8,9 @@ import {
 
 const OurServices = () => {
   return (
-    <Carousel className="mt-20 w-fit grid sm:grid-cols-1">
+    <Carousel>
       <CarouselContent>
-        <CarouselItem className="md:basis-1/2 lg:basis-1/3 hover:shadow-2xl">
+        <CarouselItem className="md:basis-1/2 lg:basis-1/3">
           <article className="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl px-8 pb-8 pt-40 max-w-sm mx-auto mt-24">
             <img
               src="https://ecdn.dhakatribune.net/contents/cache/images/640x359x1/uploads/media/2024/04/01/Carwash-cabf439dbe62543aa286043e68c491d8.jpg?jadewits_media_id=17950"
