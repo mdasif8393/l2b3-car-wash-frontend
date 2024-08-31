@@ -4,31 +4,9 @@ const FeaturedServices = () => {
   return (
     <div className="my-8 mt-24 mb-24">
       <h2 className="text-center text-2xl font-bold text-gray-800 dark:text-white md:text-4xl mb-8">
-        Features Products
+        Features Services
       </h2>
       <div className="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-6">
-        <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 hover:shadow-2xl">
-          <a href="#">
-            <img
-              className="p-2 rounded-t-lg h-52 w-full"
-              src="https://carboy.com.bd/static/images/denting_painting/car%20denting%20painting.jpg"
-              alt="product image"
-            />
-          </a>
-          <div className="px-5 pb-5">
-            <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
-              Repair Dent
-            </h5>
-            <p className="text-sm tracking-tight text-gray-900 dark:text-white mt-2">
-              Our car center offers professional tire denting repair services to
-              restore the shape and performance of your tires. Our skilled
-              technicians carefully assess and fix dents to ensure your tires
-              maintain proper balance and safety. Count on us to enhance your
-              driving experience by keeping your tires in top condition.
-            </p>
-          </div>
-        </div>
-
         <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 hover:shadow-2xl">
           <a href="#">
             <img
@@ -72,6 +50,7 @@ const FeaturedServices = () => {
             </p>
           </div>
         </div>
+
         <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 hover:shadow-2xl">
           <a href="#">
             <img
@@ -135,6 +114,27 @@ const FeaturedServices = () => {
               rotations improve handling, enhance safety, and promote better
               fuel efficiency. Trust our skilled technicians to keep your tires
               in optimal condition, ensuring a smoother and safer ride.
+            </p>
+          </div>
+        </div>
+        <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 hover:shadow-2xl">
+          <a href="#">
+            <img
+              className="p-2 rounded-t-lg h-52 w-full"
+              src="https://carboy.com.bd/static/images/denting_painting/car%20denting%20painting.jpg"
+              alt="product image"
+            />
+          </a>
+          <div className="px-5 pb-5">
+            <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+              Repair Dent
+            </h5>
+            <p className="text-sm tracking-tight text-gray-900 dark:text-white mt-2">
+              Our car center offers professional tire denting repair services to
+              restore the shape and performance of your tires. Our skilled
+              technicians carefully assess and fix dents to ensure your tires
+              maintain proper balance and safety. Count on us to enhance your
+              driving experience by keeping your tires in top condition.
             </p>
           </div>
         </div>
