@@ -1,4 +1,6 @@
 import { useLoginMutation } from "@/redux/features/auth/authApi";
+import { setUser } from "@/redux/features/auth/authSlice";
+import { useAppDispatch } from "@/redux/hooks";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { toast } from "sonner";
@@ -10,18 +12,21 @@ type Inputs = {
 };
 
 const SignIn = () => {
+  const dispatch = useAppDispatch();
+
   const [login, { data, isError }] = useLoginMutation();
 
   if (data?.success) {
     toast.success("User Logged in successfully");
   }
 
-  console.log("data =>", data);
-  console.log("error =>", isError);
+  // console.log("data =>", data);
+  // console.log("error =>", isError);
 
   const { register, handleSubmit } = useForm<Inputs>();
-  const onSubmit: SubmitHandler<Inputs> = (data) => {
-    login(data);
+  const onSubmit: SubmitHandler<Inputs> = async (data) => {
+    const res = await login(data).unwrap();
+    dispatch(setUser({ user: res?.data, token: res?.token }));
   };
 
   return (
