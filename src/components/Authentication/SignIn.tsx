@@ -1,5 +1,7 @@
+import { useLoginMutation } from "@/redux/features/auth/authApi";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import { toast } from "sonner";
 import Button from "../Button/Button";
 
 type Inputs = {
@@ -8,8 +10,19 @@ type Inputs = {
 };
 
 const SignIn = () => {
+  const [login, { data, isError }] = useLoginMutation();
+
+  if (data?.success) {
+    toast.success("User Logged in successfully");
+  }
+
+  console.log("data =>", data);
+  console.log("error =>", isError);
+
   const { register, handleSubmit } = useForm<Inputs>();
-  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
+  const onSubmit: SubmitHandler<Inputs> = (data) => {
+    login(data);
+  };
 
   return (
     <div className="container">
