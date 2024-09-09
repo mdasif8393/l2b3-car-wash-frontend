@@ -2,7 +2,7 @@ import { useLoginMutation } from "@/redux/features/auth/authApi";
 import { setUser } from "@/redux/features/auth/authSlice";
 import { useAppDispatch } from "@/redux/hooks";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import Button from "../Button/Button";
 
@@ -13,11 +13,13 @@ type Inputs = {
 
 const SignIn = () => {
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const [login, { data, isError }] = useLoginMutation();
 
   if (data?.success) {
     toast.success("User Logged in successfully");
+    navigate("/");
   }
 
   // console.log("data =>", data);
@@ -82,13 +84,13 @@ const SignIn = () => {
                     </clipPath>
                   </defs>
                   <g
-                    clip-path="url(#a)"
+                    clipPath="url(#a)"
                     transform="matrix(1.33 0 0 -1.33 0 682.667)"
                   >
                     <path
                       fill="none"
-                      stroke-miterlimit="10"
-                      stroke-width="40"
+                      strokeMiterlimit="10"
+                      strokeWidth="40"
                       d="M452 444H60c-22.091 0-40-17.909-40-40v-39.446l212.127-157.782c14.17-10.54 33.576-10.54 47.746 0L492 364.554V404c0 22.091-17.909 40-40 40Z"
                       data-original="#000000"
                     ></path>

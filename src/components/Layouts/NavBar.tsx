@@ -1,4 +1,7 @@
+import { logout } from "@/redux/features/auth/authSlice";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { Link } from "react-router-dom";
+import { toast } from "sonner";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import {
   NavigationMenu,
@@ -9,6 +12,14 @@ import {
 } from "../ui/navigation-menu";
 
 const NavBar = () => {
+  const user = useAppSelector((state) => state.auth.user);
+  const dispatch = useAppDispatch();
+
+  const handleLogOut = () => {
+    dispatch(logout());
+    toast.success("User logged out successfully");
+  };
+
   return (
     <div className="flex items-center justify-center bg-gray-900 h-24">
       <NavigationMenu>
@@ -32,12 +43,21 @@ const NavBar = () => {
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
               <Link to="/bookings">Bookings</Link>
             </NavigationMenuLink>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              <Link to="/signIn">Sign In</Link>
-            </NavigationMenuLink>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              <Link to="/signUp">Sign Up</Link>
-            </NavigationMenuLink>
+            {!user && (
+              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                <Link to="/signIn">Sign In</Link>
+              </NavigationMenuLink>
+            )}
+            {!user && (
+              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                <Link to="/signUp">Sign Up</Link>
+              </NavigationMenuLink>
+            )}
+            {user && (
+              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                <button onClick={handleLogOut}>LogOut</button>
+              </NavigationMenuLink>
+            )}
           </NavigationMenuItem>
         </NavigationMenuList>
         <Link to="/cart">
@@ -52,7 +72,7 @@ const NavBar = () => {
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
-                stroke-width="1.5"
+                strokeWidth="1.5"
                 stroke="currentColor"
                 className="file: mt-4 h-6 w-6"
               >
