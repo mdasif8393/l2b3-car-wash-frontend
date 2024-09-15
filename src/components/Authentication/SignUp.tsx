@@ -19,14 +19,14 @@ const SignUp = () => {
   const [signUp, { data }] = useSignUpMutation();
 
   if (data?.success) {
-    toast.success("User created successfully");
+    toast.success("User created successfully, Please Sign In");
     navigate("/signin");
   }
 
   const { register, handleSubmit } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     data.role = "user";
-    const res = await signUp(data).unwrap();
+    await signUp(data).unwrap();
   };
   return (
     <div className="container">

@@ -13,6 +13,7 @@ import {
 
 const NavBar = () => {
   const user = useAppSelector((state) => state.auth.user);
+
   const dispatch = useAppDispatch();
 
   const handleLogOut = () => {
@@ -85,6 +86,7 @@ const NavBar = () => {
             </div>
           </div>
         </Link>
+        {user && <p className="text-white font-bold ml-2">{user.name}</p>}
       </NavigationMenu>
     </div>
   );
