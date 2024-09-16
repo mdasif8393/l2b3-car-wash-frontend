@@ -5,7 +5,6 @@ import { useAppSelector } from "../../redux/hooks";
 
 const ProtectedRoute = ({ children }: { children: ReactNode }) => {
   const token = useAppSelector((state) => state.auth.token);
-  console.log(token);
 
   if (!token) {
     toast.error("First Sign In to access your desire Page");

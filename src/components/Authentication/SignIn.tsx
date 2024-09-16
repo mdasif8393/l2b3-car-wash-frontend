@@ -66,7 +66,7 @@ const SignIn = () => {
                 <input
                   {...register("email")}
                   name="email"
-                  type="text"
+                  type="email"
                   required
                   className="bg-transparent w-full text-sm text-gray-800 border-b border-gray-300 focus:border-blue-600 px-2 py-3 outline-none"
                   placeholder="Enter email"

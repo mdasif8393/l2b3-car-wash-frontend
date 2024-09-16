@@ -5,6 +5,7 @@ import Home from "@/components/Home/Home";
 import ProtectedRoute from "@/components/layout/ProtectedRoute";
 import MainLayout from "@/components/Layouts/MainLayout";
 import NotFound from "@/components/NotFound/NotFound";
+import ServiceDetails from "@/components/Services/ServiceDetails";
 import Services from "@/components/Services/Services";
 import { createBrowserRouter } from "react-router-dom";
 
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
       {
         path: "services",
         element: <Services />,
+      },
+      {
+        path: "service/:serviceId",
+        element: <ServiceDetails />,
       },
       {
         path: "bookings",
