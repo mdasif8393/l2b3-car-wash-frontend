@@ -10,7 +10,6 @@ import {
 } from "../ui/card";
 
 const Service = (service: any) => {
-  console.log(service);
   return (
     <Link to={`/service/${service?.service?._id}`}>
       <Card className=" hover:shadow-2xl relative overflow-hidden bg-no-repeat m-1">
