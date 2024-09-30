@@ -1,6 +1,7 @@
 import { useGetSingleServiceQuery } from "@/redux/features/services/servicesAPi";
 
 import { useGetAvailableSlotsQuery } from "@/redux/features/slot/slotApi";
+import moment from "moment";
 import { useState } from "react";
 import { DayPicker } from "react-day-picker";
 import "react-day-picker/style.css";
@@ -17,14 +18,31 @@ import {
 } from "../ui/card";
 
 const ServiceDetails = () => {
-  const [selected, setSelected] = useState<Date>(new Date());
-  console.log(selected);
-
+  let query: any = {};
   const { serviceId } = useParams();
+
+  if (serviceId) {
+    query = {
+      ...query,
+      serviceId: serviceId,
+    };
+  }
+
+  const [selected, setSelected] = useState<Date>();
+  const formateDate = moment(selected).format().toString().split("T")[0];
+
+  if (formateDate) {
+    query = {
+      ...query,
+      date: formateDate,
+    };
+  }
+
   const { data: service } = useGetSingleServiceQuery(serviceId);
 
-  const { data: slots } = useGetAvailableSlotsQuery(undefined);
-  // console.log(slots);
+  const { data: slots } = useGetAvailableSlotsQuery(query);
+
+  console.log(slots);
 
   const filteredSlot = slots?.data.filter(
     (slot: any) => slot.service._id === serviceId
