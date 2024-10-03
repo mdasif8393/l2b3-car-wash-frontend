@@ -4,14 +4,23 @@ const slotApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
     getAvailableSlots: builder.query({
       query: (query) => {
-        console.log(query);
         return {
           method: "GET",
           url: `/slots/availability?date=${query.date}&service=${query.serviceId}`,
         };
       },
     }),
+
+    bookSlot: builder.mutation({
+      query: (options) => {
+        return {
+          url: "/bookings",
+          method: "POST",
+          body: options,
+        };
+      },
+    }),
   }),
 });
 
-export const { useGetAvailableSlotsQuery } = slotApi;
+export const { useGetAvailableSlotsQuery, useBookSlotMutation } = slotApi;
